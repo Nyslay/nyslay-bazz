@@ -13,7 +13,7 @@ cp -avf "/ctx/system_files"/. /
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux kitty
+dnf5 install -y tmux
 
 # Use a COPR Example:
 #
@@ -21,6 +21,42 @@ dnf5 install -y tmux kitty
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+
+
+# pre script (desktop)
+# /opt is a symlink to /var/opt on atomic Fedora — helium-bin's RPM
+if [ -L /opt ]; then
+  rm -f /opt
+fi
+
+
+# Enable Terra
+sed -i 's/enabled=0/enabled=1/' /etc/yum.repos.d/terra.repo
+
+dnf5 -y copr enable theblackdon/kineticwe
+dnf5 -y copr enable lionheartp/Hyprland
+dnf5 -y config-manager addrepo --from-repofile=https://repo.vivaldi.com/stable/vivaldi-fedora.repo
+
+dnf install -y \
+    firefox \
+    qt5ct \
+    qt6ct \
+    nwg-look \
+    adw-gtk3-theme \
+    thunderbird \
+    deja-dup 
+
+# COPR + External
+dnf install -y \
+    kineticwe \
+    noctalia-git \
+    zed \
+    vivaldi-stable \
+    htop \
+    yazi \
+    helix
+
+
 
 #### Example for enabling a System Unit File
 

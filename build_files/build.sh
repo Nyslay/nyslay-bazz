@@ -61,7 +61,8 @@ dnf install -y \
     waybar \
     alacritty \
     xdg-desktop-portal-gnome  \
-    xdg-desktop-portal-gtk 
+    xdg-desktop-portal-gtk \
+    niri
 
 
 

@@ -34,7 +34,7 @@ fi
 # Enable Terra
 sed -i 's/enabled=0/enabled=1/' /etc/yum.repos.d/terra.repo
 
-#dnf5 -y copr enable theblackdon/kineticwe
+dnf5 -y copr enable theblackdon/kineticwe
 dnf5 -y copr enable lionheartp/Hyprland
 dnf5 -y config-manager addrepo --from-repofile=https://repo.vivaldi.com/stable/vivaldi-fedora.repo
 
@@ -56,14 +56,6 @@ dnf install -y \
     vivaldi-stable \
     yazi \
     
-dnf install -y \
-    fuzzel \
-    waybar \
-    alacritty \
-    xdg-desktop-portal-gnome  \
-    xdg-desktop-portal-gtk \
-    niri
-
 
 
 #### Example for enabling a System Unit File

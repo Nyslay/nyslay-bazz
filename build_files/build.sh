@@ -55,7 +55,7 @@ dnf install -y \
     zed \
     vivaldi-stable \
     yazi \
-    
+    kineticwe
 
 
 #### Example for enabling a System Unit File

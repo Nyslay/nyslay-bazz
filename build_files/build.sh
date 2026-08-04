@@ -19,7 +19,8 @@ dnf5 install -y tmux
 #
 # dnf5 -y copr enable ublue-os/staging
 # dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
+# Disable COPRs so they don't end up en
+# eabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
 
@@ -33,7 +34,7 @@ fi
 # Enable Terra
 sed -i 's/enabled=0/enabled=1/' /etc/yum.repos.d/terra.repo
 
-dnf5 -y copr enable theblackdon/kineticwe
+#dnf5 -y copr enable theblackdon/kineticwe
 dnf5 -y copr enable lionheartp/Hyprland
 dnf5 -y config-manager addrepo --from-repofile=https://repo.vivaldi.com/stable/vivaldi-fedora.repo
 
@@ -44,17 +45,23 @@ dnf install -y \
     nwg-look \
     adw-gtk3-theme \
     thunderbird \
-    deja-dup 
+    deja-dup \
+    htop \
+    helix
 
 # COPR + External
 dnf install -y \
-    kineticwe \
     noctalia-git \
     zed \
     vivaldi-stable \
-    htop \
     yazi \
-    helix
+    
+dnf install -y \
+    fuzzel \
+    waybar \
+    alacritty \
+    xdg-desktop-portal-gnome  \
+    xdg-desktop-portal-gtk 
 
 
 
